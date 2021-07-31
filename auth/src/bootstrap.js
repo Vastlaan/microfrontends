@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { createMemoryHistory, createBrowserHistory } from 'history'
 
-const mount = (rootElement, { onNavigate, defaultHistory,initialPath }) =>{
+const mount = (rootElement, { onNavigate, defaultHistory, initialPath }) =>{
 
   const history = defaultHistory || createMemoryHistory({
     initialEntries: [initialPath]
@@ -34,7 +34,7 @@ const mount = (rootElement, { onNavigate, defaultHistory,initialPath }) =>{
 
 // check if run in development with root-dev (only present in index.html in separate dev mode)
 
-const root = document.querySelector('#root-dev-marketing')
+const root = document.querySelector('#root-dev-auth')
 if(process.env.NODE_ENV==='development' && root){
   mount(root, {defaultHistory: createBrowserHistory()})
 }

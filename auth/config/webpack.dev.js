@@ -6,13 +6,13 @@ const packageJson = require('../package.json')
 const devConfig = {
   mode: 'development',
   output:{
-    publicPath: "http://localhost:8081/"  // if not provided, relative to the current host
-                                        // however if current page is http://localhost:8081/auth/signin
-                                        // webpack will think that host is http://localhost:8081/auth ,
+    publicPath: "http://localhost:8082/"  // if not provided, relative to the current host
+                                        // however if current page is http://localhost:8082/auth/signin
+                                        // webpack will think that host is http://localhost:8082/auth ,
                                         // because it will omit only last /path
   },
   devServer: {
-    port: 8081,
+    port: 8082,
     historyApiFallback:{
       index: '/index.html'
     }
@@ -20,10 +20,10 @@ const devConfig = {
   plugins: [
     
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./Marketing": "./src/bootstrap"
+        "./Auth": "./src/bootstrap"
       },
       shared: packageJson.dependencies
       // shared: ['react', 'react-dom']

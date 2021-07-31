@@ -1,18 +1,16 @@
-import React, {useEffect, useRef } from 'react'
-import { mount } from 'marketing/Marketing'
+import { mount } from 'auth/Auth'
+import React, {useEffect, useRef} from 'react'
 import { useHistory } from 'react-router-dom'
 
-export default function MarketingApp(){
+export default function AuthApp() {
 
-  const ref = useRef(null)
+  const ref=useRef()
   const history = useHistory()
 
   useEffect(()=>{
-    const { onParentNavigate } = mount(ref.current, {
-
+    const {onParentNavigate} = mount(ref.current, {
       initialPath: history.location.pathname,
       onNavigate: (location)=>{
-
         // location is passed by the history.listen(onNavigate) in remote app (child app)
         console.log('navigated: ', location)
 
@@ -32,7 +30,7 @@ export default function MarketingApp(){
     history.listen(onParentNavigate)
   },[])
 
-  return(
-    <div ref={ref} />
+  return (
+    <div ref={ref}> </div>
   )
 }
