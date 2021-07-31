@@ -9,6 +9,7 @@ export default function AuthApp() {
 
   useEffect(()=>{
     const {onParentNavigate} = mount(ref.current, {
+      
       initialPath: history.location.pathname,
       onNavigate: (location)=>{
         // location is passed by the history.listen(onNavigate) in remote app (child app)
