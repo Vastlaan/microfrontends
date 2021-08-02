@@ -2,7 +2,7 @@ import { mount } from 'auth/Auth'
 import React, {useEffect, useRef} from 'react'
 import { useHistory } from 'react-router-dom'
 
-export default function AuthApp() {
+export default function AuthApp({onSignIn}) {
 
   const ref=useRef()
   const history = useHistory()
@@ -11,6 +11,7 @@ export default function AuthApp() {
     const {onParentNavigate} = mount(ref.current, {
       
       initialPath: history.location.pathname,
+      onSignIn,
       onNavigate: (location)=>{
         // location is passed by the history.listen(onNavigate) in remote app (child app)
         console.log('navigated: ', location)
